@@ -6,8 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./index.css";
 import { Home } from "./pages/Home";
 import { Layout } from "./components/Layout";
-import { Tasks } from "./pages/Tasks";
-import { Dashboard } from "./pages/Dashboard";
 import { fetchContent } from "./utils/fetchContent";
 import { Content } from "./interfaces";
 import { ContentProvider } from "./contexts/ContentContext";
@@ -44,8 +42,6 @@ function Index() {
           <BrowserRouter>
             <Routes>
               <Route element={<Home />} path="/" />
-              <Route element={<Dashboard />} path="/dashboard" />
-              <Route element={<Tasks />} path="/tasks" />
             </Routes>
           </BrowserRouter>
         </Layout>

@@ -8,8 +8,10 @@ export interface ITask {
   status?: 0 | 1 | 2;
 }
 
+interface Foo {
+  title: string;
+}
+
 export interface Content {
-  "task.completed-label": string;
-  "taks.mark-label": string;
-  "task.delete-label": string;
+  foo: Foo;
 }
