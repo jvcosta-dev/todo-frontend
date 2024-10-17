@@ -14,7 +14,7 @@ export const useContent = () => {
   if (!context) {
     throw new Error("useContent must be used within a ContentProvider");
   }
-  return context;
+  return context.content;
 };
 
 export const ContentProvider: React.FC<{

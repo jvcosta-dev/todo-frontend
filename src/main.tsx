@@ -11,16 +11,19 @@ import { Dashboard } from "./pages/Dashboard";
 import { fetchContent } from "./utils/fetchContent";
 import { Content } from "./interfaces";
 import { ContentProvider } from "./contexts/ContentContext";
+import { transformContentArrayToObject } from "./utils/transformContent";
 
 function Index() {
-  const [content, setContent] = useState<Content | null>(null);
+  const [content, setContent] = useState<{ [key: string]: any } | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadContent = async () => {
       const fetchedContent = await fetchContent();
       if (fetchedContent) {
-        setContent(fetchedContent);
+        const transformedContent =
+          transformContentArrayToObject(fetchedContent);
+        setContent(transformedContent);
       }
       setLoading(false);
     };
