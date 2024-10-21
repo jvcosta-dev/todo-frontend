@@ -10,6 +10,8 @@ import { fetchContent } from "./utils/fetchContent";
 import { Content } from "./interfaces";
 import { ContentProvider } from "./contexts/ContentContext";
 import { transformContentArrayToObject } from "./utils/transformContent";
+import AuthProvider from "./contexts/AuthContext";
+import { Login } from "./pages/Login";
 
 function Index() {
   const [content, setContent] = useState<{ [key: string]: any } | null>(null);
@@ -38,13 +40,16 @@ function Index() {
   return (
     <ContentProvider content={content as Content}>
       <QueryClientProvider client={queryClient}>
-        <Layout>
-          <BrowserRouter>
+        <BrowserRouter>
+          <AuthProvider>
             <Routes>
-              <Route element={<Home />} path="/" />
+              <Route element={<Login />} path="/login" />
+              <Route element={<Layout children />}>
+                <Route index element={<Home />} path="/" />
+              </Route>
             </Routes>
-          </BrowserRouter>
-        </Layout>
+          </AuthProvider>
+        </BrowserRouter>
       </QueryClientProvider>
     </ContentProvider>
   );
