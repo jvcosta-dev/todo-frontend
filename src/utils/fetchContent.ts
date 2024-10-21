@@ -18,7 +18,7 @@ export const fetchContent = async (): Promise<any[] | null> => {
   }
 
   try {
-    const response = await fetch("http://localhost:3000/todotest");
+    const response = await fetch("http://localhost:3000/todo");
     if (response.ok) {
       const data: any[] = await response.json();
       localStorage.setItem(CACHE_KEY, JSON.stringify(data));
