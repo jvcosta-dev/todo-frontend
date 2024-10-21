@@ -6,17 +6,13 @@ interface Props {
 }
 
 export function Task({ task }: Props) {
-  const { content } = useContent();
+  const { labels } = useContent();
   return (
     <article className="flex items-center justify-between">
       <div className="flex items-center gap-3">
         <input
           type="checkbox"
-          aria-label={
-            task.status === 2
-              ? content["task.completed-label"]
-              : content["taks.mark-label"]
-          }
+          aria-label={task.status === 2 ? labels.taskMarked : labels.taskMark}
         />
         <h3>{task.title}</h3>
         <span className="px-2 py-1 bg-gray">#{task.tag}</span>
@@ -24,7 +20,7 @@ export function Task({ task }: Props) {
       <div className="flex items-center gap-3">
         <time dateTime={task.initialDate.toISOString()}></time>
         <time dateTime={task.endDate.toISOString()}></time>
-        <button aria-label={content["task.delete-label"]}></button>
+        <button aria-label={labels.taskDelete}></button>
       </div>
     </article>
   );
