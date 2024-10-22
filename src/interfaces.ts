@@ -40,9 +40,14 @@ interface Invalid {
   password: string;
 }
 
+interface Fallback {
+  message: string;
+}
+
 export interface Content {
   sidebar: Sidebar;
   labels: Labels;
   login: Login;
   invalid: Invalid;
+  fallback: Fallback;
 }

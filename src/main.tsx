@@ -12,6 +12,8 @@ import { ContentProvider } from "./contexts/ContentContext";
 import { transformContentArrayToObject } from "./utils/transformContent";
 import AuthProvider from "./contexts/AuthContext";
 import { Login } from "./pages/Login";
+import { Notfound } from "./pages/Notfound";
+import PrivateRoute from "./PrivateRoute";
 
 function Index() {
   const [content, setContent] = useState<{ [key: string]: any } | null>(null);
@@ -43,15 +45,19 @@ function Index() {
         <BrowserRouter>
           <AuthProvider>
             <Routes>
+              <Route element={<Home />} index />
+              <Route element={<PrivateRoute />}>
+                <Route
+                  element={
+                    <Layout>
+                      <Home />
+                    </Layout>
+                  }
+                  path="/tasks"
+                />
+              </Route>
               <Route element={<Login />} path="/login" />
-              <Route
-                element={
-                  <Layout>
-                    <Home />
-                  </Layout>
-                }
-                path="/home"
-              />
+              <Route element={<Notfound />} path="/*" />
             </Routes>
           </AuthProvider>
         </BrowserRouter>
