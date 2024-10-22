@@ -4,12 +4,15 @@ import React, {
   useState,
   ReactNode,
   useEffect,
+  Dispatch,
+  SetStateAction,
 } from "react";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../interfaces";
 
 interface AuthContextType {
   user: IUser;
+  setUser: Dispatch<SetStateAction<IUser>>;
   login: (data: LoginData) => Promise<void>;
   logout: () => void;
   fetchWithAuth: (
@@ -37,24 +40,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   });
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (!user) {
-      logout();
-      return;
-    }
-    try {
-      const parsedUser = JSON.parse(user) as IUser;
-      if (!parsedUser.id || !parsedUser.name || !parsedUser.email) {
-        logout();
-        return;
-      }
-      setUser(parsedUser);
-    } catch {
-      logout();
-    }
-  }, []);
-
   const login = async (data: LoginData) => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
@@ -70,7 +55,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         console.log(res.user);
         setUser(res.user);
         localStorage.setItem("user", JSON.stringify(res.user));
-        navigate("/");
+        navigate("/dashboard");
       }
     } catch (error) {
       console.error(error);
@@ -107,7 +92,9 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, fetchWithAuth }}>
+    <AuthContext.Provider
+      value={{ user, setUser, login, logout, fetchWithAuth }}
+    >
       {children}
     </AuthContext.Provider>
   );
