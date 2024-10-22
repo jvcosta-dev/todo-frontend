@@ -44,9 +44,14 @@ function Index() {
           <AuthProvider>
             <Routes>
               <Route element={<Login />} path="/login" />
-              <Route element={<Layout children />}>
-                <Route index element={<Home />} path="/" />
-              </Route>
+              <Route
+                element={
+                  <Layout>
+                    <Home />
+                  </Layout>
+                }
+                path="/home"
+              />
             </Routes>
           </AuthProvider>
         </BrowserRouter>

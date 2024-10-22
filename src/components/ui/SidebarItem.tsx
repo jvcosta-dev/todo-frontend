@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 interface Props {
   name: string;
@@ -9,9 +9,19 @@ interface Props {
 
 export function SidebarItem({ name, to, children }: Props) {
   return (
-    <Link to={to} className="flex flex-row items-center gap-1">
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        `flex flex-row items-center p-2 rounded-lg gap-2 capitalize ${
+          isActive
+            ? "bg-primary text-light"
+            : "hover:bg-light transition-colors duration-150"
+        }
+        }`
+      }
+    >
       {children}
-      {name}
-    </Link>
+      <p className="hidden sm:block w-0 sm:w-24 truncate">{name}</p>
+    </NavLink>
   );
 }
