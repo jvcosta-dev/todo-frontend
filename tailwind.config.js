@@ -10,6 +10,9 @@ export default {
         light: "#E8E9F3",
         dark: "#1E1E1E",
       },
+      fontFamily: {
+        mukta: ["Mukta", "sans-serif"],
+      },
     },
   },
   plugins: [],

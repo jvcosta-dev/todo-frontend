@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-light;
+  @apply bg-light text-dark font-mukta font-medium;
 }
