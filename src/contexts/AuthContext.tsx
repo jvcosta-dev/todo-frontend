@@ -1,9 +1,15 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../interfaces";
 
 interface AuthContextType {
-  user: IUser | null;
+  user: IUser;
   login: (data: LoginData) => Promise<void>;
   logout: () => void;
   fetchWithAuth: (
@@ -24,12 +30,33 @@ interface AuthProviderProps {
 }
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<IUser | null>(null);
+  const [user, setUser] = useState<IUser>({
+    id: "",
+    name: "",
+    email: "",
+  });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (!user) {
+      logout();
+      return;
+    }
+    try {
+      const parsedUser = JSON.parse(user) as IUser;
+      if (!parsedUser.id || !parsedUser.name || !parsedUser.email) {
+        logout();
+        return;
+      }
+      setUser(parsedUser);
+    } catch {
+      logout();
+    }
+  }, []);
 
   const login = async (data: LoginData) => {
     try {
-      console.log(JSON.stringify(data));
       const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
         method: "POST",
         body: JSON.stringify(data),
@@ -39,8 +66,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         credentials: "include",
       });
       const res = await response.json();
-      console.log("res", res.user);
       if (res) {
+        console.log(res.user);
         setUser(res.user);
         localStorage.setItem("user", JSON.stringify(res.user));
         navigate("/");
@@ -51,7 +78,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const logout = () => {
-    setUser(null);
+    setUser({
+      id: "",
+      name: "",
+      email: "",
+    });
     localStorage.removeItem("user");
     navigate("/login");
   };
