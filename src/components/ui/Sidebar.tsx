@@ -7,8 +7,8 @@ export function Sidebar() {
   const { sidebar } = useContent();
   const { user } = useAuth();
   return (
-    <aside className="sm:h-screen w-full sticky bottom-0 sm:w-max flex sm:flex-col justify-center sm:justify-between gap-4 p-4 bg-white">
-      <div className="flex sm:flex-col items-center gap-4">
+    <aside className="z-10 sm:h-screen w-full sticky top-0 bottom-0 sm:w-max flex sm:flex-col justify-center sm:justify-between gap-8 p-4 bg-white">
+      <div className="flex sm:flex-col items-center gap-8 sm:gap-4">
         <SidebarItem to="/dashboard" name={sidebar.dashboard}>
           <LayoutDashboard className="w-8 h-8" />
         </SidebarItem>
@@ -16,7 +16,7 @@ export function Sidebar() {
           <ClipboardCheck className="w-8 h-8" />
         </SidebarItem>
       </div>
-      <div className="flex sm:flex-col items-center gap-4">
+      <div className="flex sm:flex-col items-center gap-8 sm:gap-4">
         <SidebarItem to="/profile" name={user.name}>
           <img
             src={user?.imageUrl || "/user.webp"}
