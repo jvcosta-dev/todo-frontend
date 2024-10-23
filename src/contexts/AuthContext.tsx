@@ -3,22 +3,23 @@ import React, {
   useContext,
   useState,
   ReactNode,
-  useEffect,
   Dispatch,
   SetStateAction,
 } from "react";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../interfaces";
 
+type FetchWithAuth = <T>(
+  url: string,
+  options?: RequestInit
+) => Promise<T | null>;
+
 interface AuthContextType {
   user: IUser;
   setUser: Dispatch<SetStateAction<IUser>>;
-  login: (data: LoginData) => Promise<void>;
+  login: (data: LoginData) => Promise<null | string>;
   logout: () => void;
-  fetchWithAuth: (
-    url: string,
-    options?: RequestInit
-  ) => Promise<Response | null>;
+  fetchWithAuth: FetchWithAuth;
 }
 
 interface LoginData {
@@ -50,15 +51,24 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         },
         credentials: "include",
       });
+
+      if (!response.ok) {
+        const error = await response.json();
+        return error.message || "Login failed";
+      }
+
       const res = await response.json();
+
       if (res) {
         console.log(res.user);
         setUser(res.user);
         localStorage.setItem("user", JSON.stringify(res.user));
         navigate("/dashboard");
       }
+
+      return null;
     } catch (error) {
-      console.error(error);
+      return "An error occurred. Please try again.";
     }
   };
 
@@ -72,7 +82,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     navigate("/login");
   };
 
-  const fetchWithAuth = async (url: string, options: RequestInit = {}) => {
+  const fetchWithAuth: FetchWithAuth = async (
+    url: string,
+    options: RequestInit = {}
+  ) => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/${url}`, {
         ...options,
@@ -84,7 +97,16 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         return null;
       }
 
-      return response;
+      if (response.status === 204) {
+        return null;
+      }
+
+      if (!response.ok) {
+        const errorMessage = `Error: ${response.status} ${response.statusText}`;
+        return Promise.reject(errorMessage);
+      }
+
+      return await response.json();
     } catch (error) {
       console.error("Fetch error:", error);
       return null;
