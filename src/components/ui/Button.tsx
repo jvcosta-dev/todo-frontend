@@ -16,7 +16,7 @@ export function Button({ type, full, disabled, click, children }: Props) {
       onClick={click}
       className={`${
         full ? "w-full" : "w-max"
-      } flex h-max justify-center px-4 py-1 rounded-lg bg-primary text-white capitalize disabled:bg-light disabled:text-dark transition-colors duration-150`}
+      } flex h-max justify-center px-4 py-2 rounded-lg bg-primary text-white capitalize disabled:bg-light disabled:text-dark transition-colors duration-150`}
     >
       {children}
     </button>

@@ -17,16 +17,13 @@ export function Login() {
       setError(content.invalid.email);
       return;
     }
-    if (!/[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
-      setError(content.invalid.password);
-      return;
-    }
-    await login({ email, password });
+    const err = await login({ email, password });
+    if (err) setError(err);
   };
   return (
     <div className="h-screen flex items-center justify-center">
       <div className="flex flex-col items-center gap-3 p-6 rounded-3xl bg-white mb-32">
-        <h1 className="text-center capitalize text-3xl w-80">
+        <h1 className="text-center capitalize text-3xl w-72 sm:w-80">
           {content.login.title}
         </h1>
         <form

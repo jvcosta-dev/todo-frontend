@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import "./index.css";
 import { Home } from "./pages/Home";
-import { Layout } from "./components/Layout";
+import { Layout } from "./components/ui/Layout";
 import { fetchContent } from "./utils/fetchContent";
 import { Content } from "./interfaces";
 import { ContentProvider } from "./contexts/ContentContext";
@@ -14,6 +14,8 @@ import AuthProvider from "./contexts/AuthContext";
 import { Login } from "./pages/Login";
 import { Notfound } from "./pages/Notfound";
 import PrivateRoute from "./PrivateRoute";
+import { Loading } from "./components/ui/Loading";
+import { Tasks } from "./pages/Tasks";
 
 function Index() {
   const [content, setContent] = useState<{ [key: string]: any } | null>(null);
@@ -33,9 +35,7 @@ function Index() {
     loadContent();
   }, []);
 
-  if (loading) {
-    return <div>loading</div>;
-  }
+  if (loading) return <Loading />;
 
   const queryClient = new QueryClient();
 
@@ -50,7 +50,7 @@ function Index() {
                 <Route
                   element={
                     <Layout>
-                      <Home />
+                      <Tasks />
                     </Layout>
                   }
                   path="/tasks"
