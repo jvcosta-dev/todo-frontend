@@ -51,7 +51,7 @@ export function Login() {
               {error}
             </span>
           )}
-          <Button disabled={!email || !password} type="submit">
+          <Button disabled={!email || !password} full type="submit">
             {content.login.action}
           </Button>
           <p className="capitalize">
