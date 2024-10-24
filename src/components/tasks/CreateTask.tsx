@@ -3,11 +3,12 @@ import { FormEvent, useEffect, useState } from "react";
 import { Input } from "../ui/Input";
 import { Modal } from "../ui/Modal";
 import { Button } from "../ui/Button";
+import { ITaskInput } from "../../interfaces";
 
 interface CreateTaskModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (data: any) => void;
+  onSubmit: (data: ITaskInput) => void;
 }
 
 export function CreateTaskModal({
@@ -40,8 +41,8 @@ export function CreateTaskModal({
       title,
       description,
       tag,
-      initialDate: initial.toISOString().replace("Z", "+00:00"),
-      endDate: end.toISOString().replace("Z", "+00:00"),
+      initialDate: initial.toISOString(),
+      endDate: end.toISOString(),
     };
 
     onSubmit(data);
@@ -49,7 +50,6 @@ export function CreateTaskModal({
   };
 
   if (!isOpen) return;
-
   return (
     <Modal title="Create Task" closeFn={onClose}>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
