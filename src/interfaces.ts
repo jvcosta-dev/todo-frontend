@@ -8,6 +8,14 @@ export interface ITask {
   status?: 0 | 1 | 2;
 }
 
+export interface ITaskInput {
+  title: string;
+  description: string;
+  tag: string;
+  initialDate: string;
+  endDate: string;
+}
+
 export interface IUser {
   id: string;
   name: string;
