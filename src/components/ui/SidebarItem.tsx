@@ -15,7 +15,7 @@ export function SidebarItem({ name, to, children }: Props) {
         `flex flex-row items-center p-2 rounded-lg gap-2 capitalize ${
           isActive
             ? "bg-primary text-light"
-            : "hover:bg-light transition-colors duration-150"
+            : "hover:bg-light dark:hover:bg-dark transition-colors duration-150"
         }
         }`
       }

@@ -32,7 +32,7 @@ export function Task({ task }: Props) {
   return (
     <>
       <article
-        className={`flex sm:items-center flex-col sm:flex-row gap-2 sm:justify-between p-2 rounded-xl bg-white border-2 ${
+        className={`flex sm:items-center flex-col sm:flex-row gap-2 sm:justify-between p-2 rounded-xl bg-solid dark:bg-solidDark border-2 ${
           task.status === 1
             ? "border-success"
             : task.status === 0
