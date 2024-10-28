@@ -32,3 +32,15 @@ export const formatDateToInput = (date: string) => {
 
   return `${year}-${month}-${day}T${hours}:${minutes}`;
 };
+
+export function getFirstDayOfCurrentMonth() {
+  const now = new Date();
+  const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
+  return firstDay.toISOString();
+}
+
+export function getLastDayOfCurrentMonth() {
+  const now = new Date();
+  const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+  return lastDay.toISOString();
+}
