@@ -17,6 +17,8 @@ import PrivateRoute from "./PrivateRoute";
 import { Loading } from "./components/ui/Loading";
 import { Tasks } from "./pages/Tasks";
 import { Dashboard } from "./pages/Dashboard";
+import { Settings } from "./pages/Settings";
+import SettingsProvider from "./contexts/SettingsContext";
 
 function Index() {
   const [content, setContent] = useState<{ [key: string]: any } | null>(null);
@@ -45,29 +47,39 @@ function Index() {
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <AuthProvider>
-            <Routes>
-              <Route element={<Home />} index />
-              <Route element={<PrivateRoute />}>
-                <Route
-                  element={
-                    <Layout>
-                      <Dashboard />
-                    </Layout>
-                  }
-                  path="/dashboard"
-                />
-                <Route
-                  element={
-                    <Layout>
-                      <Tasks />
-                    </Layout>
-                  }
-                  path="/tasks"
-                />
-              </Route>
-              <Route element={<Login />} path="/login" />
-              <Route element={<Notfound />} path="/*" />
-            </Routes>
+            <SettingsProvider>
+              <Routes>
+                <Route element={<Home />} index />
+                <Route element={<PrivateRoute />}>
+                  <Route
+                    element={
+                      <Layout>
+                        <Dashboard />
+                      </Layout>
+                    }
+                    path="/dashboard"
+                  />
+                  <Route
+                    element={
+                      <Layout>
+                        <Tasks />
+                      </Layout>
+                    }
+                    path="/tasks"
+                  />
+                  <Route
+                    element={
+                      <Layout>
+                        <Settings />
+                      </Layout>
+                    }
+                    path="/settings"
+                  />
+                </Route>
+                <Route element={<Login />} path="/login" />
+                <Route element={<Notfound />} path="/*" />
+              </Routes>
+            </SettingsProvider>
           </AuthProvider>
         </BrowserRouter>
       </QueryClientProvider>
