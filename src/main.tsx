@@ -20,6 +20,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { Settings } from "./pages/Settings";
 import SettingsProvider from "./contexts/SettingsContext";
 import { Register } from "./pages/Register";
+import { Profile } from "./pages/Profile";
 
 function Index() {
   const [content, setContent] = useState<{ [key: string]: any } | null>(null);
@@ -74,6 +75,14 @@ function Index() {
                       </Layout>
                     }
                     path="/settings"
+                  />
+                  <Route
+                    element={
+                      <Layout>
+                        <Profile />
+                      </Layout>
+                    }
+                    path="/profile"
                   />
                 </Route>
                 <Route element={<Register />} path="/signup" />
