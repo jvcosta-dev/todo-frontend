@@ -9,7 +9,7 @@ export function Notfound() {
 
   return (
     <Page title="Not Found" description={fallback.message}>
-      <div className="h-screen flex flex-col justify-center items-center gap-4">
+      <div className="h-screen w-full flex flex-col justify-center items-center gap-4">
         <h1 className="text-8xl md:text-9xl">404</h1>
         <p className="text-lg sm:text-2xl capitalize">{fallback.message}</p>
 

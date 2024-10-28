@@ -22,6 +22,8 @@ export function CreateTaskModal({
   const [initialDate, setInitialDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
+  const [error, setError] = useState("");
+
   useEffect(() => {
     if (!isOpen) {
       setTitle("");
@@ -29,6 +31,7 @@ export function CreateTaskModal({
       setTag("");
       setInitialDate("");
       setEndDate("");
+      setError("");
     }
   }, [isOpen]);
 
@@ -45,6 +48,15 @@ export function CreateTaskModal({
       endDate: end.toISOString(),
     };
 
+    if (new Date(initialDate).getDate() > new Date(endDate).getDate()) {
+      setError("End date must be greater than initial date.");
+      return;
+    }
+
+    if (title.length < 3 || description.length < 3 || tag.length < 3) {
+      setError("Title, Description and Tag must be at least 3 caracters.");
+      return;
+    }
     onSubmit(data);
     onClose();
   };
@@ -103,6 +115,7 @@ export function CreateTaskModal({
           Create Task
         </Button>
       </form>
+      {error && <span className="text-danger text-center">{error}</span>}
     </Modal>
   );
 }

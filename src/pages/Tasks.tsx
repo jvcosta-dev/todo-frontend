@@ -24,7 +24,9 @@ export function Tasks() {
   const search = (e: FormEvent) => {
     e.preventDefault();
     if (!tasks || !term) return;
-    const found = tasks.find((t) => t.title.includes(term));
+    const found = tasks.find((t) =>
+      t.title.toLowerCase().includes(term.toLowerCase())
+    );
     setTouchedSearch(true);
     if (found) setResultTask(found);
     return;
