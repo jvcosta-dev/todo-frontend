@@ -10,7 +10,6 @@ import {
   getFirstDayOfCurrentMonth,
   getLastDayOfCurrentMonth,
 } from "../utils/formatDate";
-import { mockLineChart } from "../utils/mock";
 
 export function Dashboard() {
   const { user } = useAuth();

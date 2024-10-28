@@ -36,7 +36,7 @@ export function LineChart({ tasksPerDayArray }: Props) {
     labels: labels,
     datasets: [
       {
-        label: "Tasks per Day",
+        label: "Completed Tasks per Day",
         data: dataCounts,
         fill: true,
         borderColor: "rgba(75, 192, 192, 1)",
