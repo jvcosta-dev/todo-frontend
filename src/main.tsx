@@ -19,6 +19,7 @@ import { Tasks } from "./pages/Tasks";
 import { Dashboard } from "./pages/Dashboard";
 import { Settings } from "./pages/Settings";
 import SettingsProvider from "./contexts/SettingsContext";
+import { Register } from "./pages/Register";
 
 function Index() {
   const [content, setContent] = useState<{ [key: string]: any } | null>(null);
@@ -49,7 +50,6 @@ function Index() {
           <AuthProvider>
             <SettingsProvider>
               <Routes>
-                <Route element={<Home />} index />
                 <Route element={<PrivateRoute />}>
                   <Route
                     element={
@@ -76,6 +76,7 @@ function Index() {
                     path="/settings"
                   />
                 </Route>
+                <Route element={<Register />} path="/signup" />
                 <Route element={<Login />} path="/login" />
                 <Route element={<Notfound />} path="/*" />
               </Routes>

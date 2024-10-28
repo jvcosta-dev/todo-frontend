@@ -18,11 +18,18 @@ interface AuthContextType {
   user: IUser;
   setUser: Dispatch<SetStateAction<IUser>>;
   login: (data: LoginData) => Promise<null | string>;
+  register: (data: RegisterData) => Promise<null | string>;
   logout: () => void;
   fetchWithAuth: FetchWithAuth;
 }
 
 interface LoginData {
+  email: string;
+  password: string;
+}
+
+interface RegisterData {
+  name: string;
   email: string;
   password: string;
 }
@@ -55,6 +62,37 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (!response.ok) {
         const error = await response.json();
         return error.message || "Login failed";
+      }
+
+      const res = await response.json();
+
+      if (res) {
+        console.log(res.user);
+        setUser(res.user);
+        localStorage.setItem("user", JSON.stringify(res.user));
+        navigate("/dashboard");
+      }
+
+      return null;
+    } catch (error) {
+      return "An error occurred. Please try again.";
+    }
+  };
+
+  const register = async (data: RegisterData) => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/register`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "Application/JSON",
+        },
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        return error.message || "Register failed";
       }
 
       const res = await response.json();
@@ -115,7 +153,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, setUser, login, logout, fetchWithAuth }}
+      value={{ user, setUser, login, register, logout, fetchWithAuth }}
     >
       {children}
     </AuthContext.Provider>

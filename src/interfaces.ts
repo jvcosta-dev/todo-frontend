@@ -51,6 +51,7 @@ interface Labels {
   taskMarked: string;
   email: string;
   password: string;
+  name: string;
 }
 
 interface Login {
@@ -59,9 +60,16 @@ interface Login {
   link: string;
 }
 
+interface Register {
+  title: string;
+  action: string;
+  link: string;
+}
+
 interface Invalid {
   email: string;
   password: string;
+  match: string;
 }
 
 interface Fallback {
@@ -72,6 +80,7 @@ export interface Content {
   sidebar: Sidebar;
   labels: Labels;
   login: Login;
+  register: Register;
   invalid: Invalid;
   fallback: Fallback;
 }
