@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #2b91ff;
+}
+
 body {
-  @apply bg-light text-dark font-mukta font-medium;
+  @apply dark:bg-dark dark:text-light bg-light text-dark font-mukta font-medium transition-colors duration-150;
 }

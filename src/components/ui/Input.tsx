@@ -20,7 +20,7 @@ export function Input({
   return (
     <label htmlFor={name} className="w-full flex flex-col gap-0 items-start">
       {label && <span className="capitalize">{label}</span>}
-      <div className="w-full p-2 rounded-xl border-2 border-light focus-within:border-primary transition-colors duration-150 bg-white">
+      <div className="w-full p-2 rounded-xl border-2 border-light focus-within:border-primary transition-colors duration-150 bg-solid dark:bg-solidDark">
         <input
           autoComplete="off"
           type={type}

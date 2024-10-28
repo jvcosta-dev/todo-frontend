@@ -24,7 +24,7 @@ export function Login() {
   return (
     <Page title="Sign In" description="login into Todo Ui web application.">
       <div className="h-screen flex items-center justify-center">
-        <div className="flex flex-col items-center gap-3 p-6 rounded-3xl bg-white mb-32">
+        <div className="flex flex-col items-center gap-3 p-6 rounded-3xl bg-solid dark:bg-solidDark mb-32">
           <h1 className="text-center capitalize text-3xl w-72 sm:w-80">
             {content.login.title}
           </h1>
