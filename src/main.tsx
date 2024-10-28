@@ -16,6 +16,7 @@ import { Notfound } from "./pages/Notfound";
 import PrivateRoute from "./PrivateRoute";
 import { Loading } from "./components/ui/Loading";
 import { Tasks } from "./pages/Tasks";
+import { Dashboard } from "./pages/Dashboard";
 
 function Index() {
   const [content, setContent] = useState<{ [key: string]: any } | null>(null);
@@ -47,6 +48,14 @@ function Index() {
             <Routes>
               <Route element={<Home />} index />
               <Route element={<PrivateRoute />}>
+                <Route
+                  element={
+                    <Layout>
+                      <Dashboard />
+                    </Layout>
+                  }
+                  path="/dashboard"
+                />
                 <Route
                   element={
                     <Layout>
