@@ -23,6 +23,22 @@ export interface IUser {
   imageUrl?: string;
 }
 
+export interface Dashboard {
+  completedTasks: number;
+  pendingTasks: number;
+  activeTasks: number;
+  nextPendingTask: ITask | null;
+  nextTask: ITask | null;
+  recentCompletedTask: ITask | null;
+  tasksPerDayArray: TasksPerDayArray[];
+}
+
+export interface TasksPerDayArray {
+  date: string;
+  count: number;
+  tasks: ITask[];
+}
+
 interface Sidebar {
   dashboard: string;
   tasks: string;

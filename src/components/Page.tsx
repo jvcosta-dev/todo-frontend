@@ -31,7 +31,7 @@ export function Page({ title, description, children }: Props) {
     };
   }, [title, description]);
 
-  return <div className="flex flex-grow gap-6">{children}</div>;
+  return <div className="flex flex-col flex-grow gap-6">{children}</div>;
 }
 
 export default Page;
