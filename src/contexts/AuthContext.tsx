@@ -19,6 +19,7 @@ interface AuthContextType {
   setUser: Dispatch<SetStateAction<IUser>>;
   login: (data: LoginData) => Promise<null | string>;
   register: (data: RegisterData) => Promise<null | string>;
+  deleteUser: () => Promise<null | string>;
   logout: () => void;
   fetchWithAuth: FetchWithAuth;
 }
@@ -45,6 +46,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     id: "",
     name: "",
     email: "",
+    imageUrl: "default.webp",
   });
   const navigate = useNavigate();
 
@@ -110,6 +112,21 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
+  const deleteUser = async () => {
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/user`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+      if (!res.ok) {
+        return "Error deleting user";
+      }
+      return null;
+    } catch (error) {
+      return "An error occurred. Please try again.";
+    }
+  };
+
   const logout = () => {
     setUser({
       id: "",
@@ -153,7 +170,15 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, setUser, login, register, logout, fetchWithAuth }}
+      value={{
+        user,
+        setUser,
+        login,
+        register,
+        deleteUser,
+        logout,
+        fetchWithAuth,
+      }}
     >
       {children}
     </AuthContext.Provider>
