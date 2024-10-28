@@ -53,13 +53,14 @@ export function Register() {
               required
               change={(e) => {
                 if (
-                  /^[a-zA-Z]*$/.test(e.target.value) ||
+                  /^[a-zA-Z\s]*$/.test(e.target.value) ||
                   e.target.value === ""
                 ) {
                   setName(e.target.value);
                 }
               }}
             />
+
             <Input
               type="email"
               name="email"

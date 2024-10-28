@@ -54,7 +54,7 @@ export function Settings() {
             changePrimaryColor(JSON.parse(e.target.value) as primaryColor);
           }}
         >
-          <option selected value={JSON.stringify(primaryColor)}>
+          <option value={JSON.stringify(primaryColor)}>
             {primaryColor.name}
           </option>
           {primaryColors.map((color, i) => (
