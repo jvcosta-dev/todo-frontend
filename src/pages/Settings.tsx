@@ -7,10 +7,10 @@ export function Settings() {
 
   const primaryColors = [
     { name: "Azure", color: "#2b91ff" },
-    { name: "Coral", color: "#ff6f80" },
-    { name: "Turquoise", color: "#00bcd4" },
-    { name: "Amethyst", color: "#8e44ad" },
-    { name: "Sunset", color: "#f39c12" },
+    { name: "Coral", color: "#ff5252" },
+    { name: "Turquoise", color: "#00acc1" },
+    { name: "Amethyst", color: "#7b3cbe" },
+    { name: "Sunset", color: "#bc600b" },
   ];
 
   return (
