@@ -7,7 +7,7 @@ interface Props {
 }
 export function Page({ title, description, children }: Props) {
   useEffect(() => {
-    document.title = "TodoUi | " + title;
+    document.title = "Task Track | " + title;
 
     let metaDescription = document.querySelector(
       'meta[name="description"]'
@@ -20,7 +20,7 @@ export function Page({ title, description, children }: Props) {
     metaDescription.content = description;
 
     return () => {
-      document.title = "TodoUi";
+      document.title = "Task Track";
       let metaDescription = document.querySelector(
         'meta[name="description"]'
       ) as HTMLMetaElement | null;

@@ -36,7 +36,7 @@ export function Task({ task }: Props) {
           task.status === 1
             ? "border-success"
             : task.status === 0
-            ? "border-light"
+            ? "border-light dark:border-dark"
             : "border-danger"
         }`}
       >
