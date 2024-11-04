@@ -1,18 +1,18 @@
 import { SquareArrowOutUpRight, Trash2 } from "lucide-react";
-import { useContent } from "../../contexts/ContentContext";
-import { ITask, ITaskInput } from "../../interfaces";
+import { ITask, ITaskInput } from "../../interfaces/interfaces";
 import { formatDate } from "../../utils/formatDate";
 import { ChangeEvent, useState } from "react";
 import { useTasks } from "../../hooks/useTasks";
 import { Button } from "../ui/Button";
 import { TaskDetail } from "./TaskDetail";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   task: ITask;
 }
 
 export function Task({ task }: Props) {
-  const { labels } = useContent();
+  const { t } = useTranslation();
   const [_, setIsChecked] = useState(task.status === 1);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -47,9 +47,7 @@ export function Task({ task }: Props) {
                 onChange={handleCheck}
                 checked={task.status === 1}
                 type="checkbox"
-                aria-label={
-                  task.status === 1 ? labels.taskMarked : labels.taskMark
-                }
+                aria-label={task.status === 1 ? t("") : t("")}
                 className="peer h-6 w-6 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-success checked:border-success"
                 id="check"
               />
@@ -89,7 +87,7 @@ export function Task({ task }: Props) {
             <SquareArrowOutUpRight />
           </Button>
           <Button type="button" click={handleDelete} danger>
-            <Trash2 aria-label={labels.taskDelete} />
+            <Trash2 aria-label={t("")} />
           </Button>
         </div>
       </article>

@@ -7,7 +7,7 @@ import React, {
   SetStateAction,
 } from "react";
 import { useNavigate } from "react-router-dom";
-import { IUser } from "../interfaces";
+import { IUser } from "../interfaces/interfaces";
 
 type FetchWithAuth = <T>(
   url: string,

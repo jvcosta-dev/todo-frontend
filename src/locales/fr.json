@@ -1,0 +1,73 @@
+{
+  "welcome": "Bienvenue",
+  "greeting": "Salut",
+
+  "title-login": "Connexion",
+  "desc-login": "Connectez-vous à votre compte Task Track",
+  "action-login": "Connectez-vous maintenant",
+  "question-login": "Vous n'avez pas de compte ?",
+  "link-login": "Créer maintenant",
+
+  "title-signup": "Créez votre compte",
+  "desc-signup": "Créez votre compte Task Track",
+  "name": "Nom",
+  "password": "Mot de passe",
+  "confirm-password": "Confirmer le mot de passe",
+  "action-signup": "Créer un compte",
+  "question-signup": "Vous avez déjà un compte ?",
+  "link-signup": "Connectez-vous maintenant",
+
+  "invalid-email": "E-mail invalide",
+  "invalid-password": "Le mot de passe doit comporter au moins 8 caractères, avec 1 majuscule et 1 chiffre",
+  "invalid-confirm-password": "Les mots de passe ne correspondent pas",
+
+  "title-404": "Page non trouvée",
+  "desc-404": "Cette page est introuvable",
+  "link-404": "Retour",
+
+  "title-dash": "Tableau de bord",
+  "desc-dash": "Aperçu de vos tâches",
+  "dashboard-side": "Tableau de bord",
+
+  "today": "Aujourd'hui est",
+  "completed-tasks": "Tâches terminées",
+  "active-tasks": "Tâches actives",
+  "pending-tasks": "Tâches en attente",
+  "next-dash": "Prochaine tâche",
+  "next-pending-task": "Prochaine tâche en attente",
+  "recent-dash": "Tâche récente",
+
+  "label-line-chart": "Tâche(s) par jour",
+  "title-line-chart": "Tâches terminées par jour",
+
+  "tasks-side": "Tâches",
+  "title-taks": "Tâches",
+  "desc-tasks": "Gérez vos tâches",
+  "tasks": "Tâches",
+  "have-tasks": "vous avez",
+  "no-tasks": "vous n'avez aucune tâche",
+  "search-tasks": "Rechercher une tâche",
+  "delete-tasks": "Supprimer la tâche",
+  "create-tasks": "Créer une tâche",
+
+  "error-date": "La date de fin doit être après la date de début",
+  "error-length": "Titre, Description et Tag doivent avoir au moins 3 caractères",
+
+  "title": "Titre",
+  "desc": "Description",
+  "tag": "Étiquette",
+  "initial-date": "Date de début",
+  "end-date": "Date de fin",
+
+  "title-profile": "Mon profil",
+  "desc-profile": "Gérez votre profil",
+  "delete-account": "Supprimer mon compte",
+  "logout": "Déconnexion",
+  "please-type": "Veuillez saisir",
+  "to-confirm": "pour confirmer",
+
+  "title-settings": "Paramètres",
+  "settings-side": "Paramètres",
+  "dark-mode": "Mode sombre",
+  "primary-color": "Couleur principale"
+}

@@ -1,32 +1,34 @@
 import { FormEvent, useState } from "react";
-import { useContent } from "../contexts/ContentContext";
 import { useAuth } from "../contexts/AuthContext";
 import { Input } from "../components/ui/Input";
 import { Button } from "../components/ui/Button";
 import { Link } from "react-router-dom";
 import Page from "../components/Page";
+import { useTranslation } from "react-i18next";
 
 export function Login() {
-  const content = useContent();
+  const { t } = useTranslation();
   const { login } = useAuth();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
   const submit = async (e: FormEvent) => {
     e.preventDefault();
     if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-      setError(content.invalid.email);
+      setError(t(""));
       return;
     }
     const err = await login({ email, password });
     if (err) setError(err);
   };
   return (
-    <Page title="Sign In" description="login into Todo Ui web application.">
+    <Page title={t("title-login")} description={t("desc-login")}>
       <div className="h-screen flex items-center justify-center">
         <div className="flex flex-col items-center gap-3 p-6 rounded-3xl bg-solid dark:bg-solidDark mb-32">
           <h1 className="text-center capitalize text-3xl w-72 sm:w-80">
-            {content.login.title}
+            {t("title-login")}
           </h1>
           <form
             onSubmit={(e: FormEvent) => submit(e)}
@@ -35,7 +37,7 @@ export function Login() {
             <Input
               type="email"
               name="email"
-              label={content.labels.email}
+              label={"email"}
               value={email}
               required
               change={(e) => setEmail(e.target.value)}
@@ -43,7 +45,7 @@ export function Login() {
             <Input
               type="password"
               name="password"
-              label={content.labels.password}
+              label={t("password")}
               value={password}
               required
               change={(e) => setPassword(e.target.value)}
@@ -54,14 +56,12 @@ export function Login() {
               </span>
             )}
             <Button disabled={!email || !password} full type="submit">
-              {content.login.action}
+              {t("action-login")}
             </Button>
-            <p className="capitalize">
-              {content.login.link.split("?")[0]}?
+            <p>
+              {t("question-login")}{" "}
               <Link to="/signup">
-                <span className="text-primary">
-                  {content.login.link.split("?")[1]}
-                </span>
+                <span className="text-primary">{t("link-login")}</span>
               </Link>
             </p>
           </form>

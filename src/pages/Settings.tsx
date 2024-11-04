@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
 import Page from "../components/Page";
 import { primaryColor, useSettings } from "../contexts/SettingsContext";
+import { ChangeLanguage } from "../components/ChangeLanguage";
 
 export function Settings() {
+  const { t } = useTranslation();
   const { changePrimaryColor, switchDarkMode, primaryColor, darkMode } =
     useSettings();
 
@@ -14,7 +17,7 @@ export function Settings() {
   ];
 
   return (
-    <Page title="Settings" description="View and edit your settings">
+    <Page title={t("title-settings")} description={t("desc-settings")}>
       <div className="inline-flex items-center gap-2">
         <label className="flex items-center cursor-pointer relative">
           <input
@@ -42,10 +45,10 @@ export function Settings() {
             </svg>
           </span>
         </label>
-        <span>Dark Mode</span>
+        <span>{t("dark-mode")}</span>
       </div>
       <label htmlFor="primaryColor" className="flex flex-col gap-1">
-        Primary Color
+        {t("primary-color")}
         <select
           id="primaryColor"
           style={{ borderColor: primaryColor.color }}
@@ -64,6 +67,7 @@ export function Settings() {
           ))}
         </select>
       </label>
+      <ChangeLanguage />
     </Page>
   );
 }

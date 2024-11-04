@@ -1,0 +1,73 @@
+{
+  "welcome": "Welcome",
+  "greeting": "Hello",
+
+  "title-login": "Login",
+  "desc-login": "Log into your Task Track account",
+  "action-login": "Login Now",
+  "question-login": "Don't have an account?",
+  "link-login": "Create Now",
+
+  "title-signup": "Create your account",
+  "desc-signup": "Create your Task Track account",
+  "name": "Name",
+  "password": "Password",
+  "confirm-password": "Confirm Password",
+  "action-signup": "Create Account",
+  "question-signup": "Already have an account?",
+  "link-signup": "Login Now",
+
+  "invalid-email": "Invalid Email",
+  "invalid-password": "Password must have at least 8 characters, with 1 uppercase and 1 number",
+  "invalid-confirm-password": "Passwords do not match",
+
+  "title-404": "Page not found",
+  "desc-404": "This page was not found",
+  "link-404": "Return",
+
+  "title-dash": "Dashboard",
+  "desc-dash": "Overview of your tasks",
+  "dashboard-side": "Dashboard",
+
+  "today": "Today is",
+  "completed-tasks": "Completed Tasks",
+  "active-tasks": "Active Tasks",
+  "pending-tasks": "Pending Tasks",
+  "next-dash": "Next Task",
+  "next-pending-task": "Next Pending Task",
+  "recent-dash": "Recent Task",
+
+  "label-line-chart": "Task(s) per day",
+  "title-line-chart": "Tasks completed per day",
+
+  "tasks-side": "Tasks",
+  "title-taks": "Tasks",
+  "desc-tasks": "Manage your tasks",
+  "tasks": "Tasks",
+  "have-tasks": "you have",
+  "no-tasks": "you have no tasks",
+  "search-tasks": "Search Task",
+  "delete-tasks": "Delete Task",
+  "create-tasks": "Create Task",
+
+  "error-date": "End date must be after start date",
+  "error-length": "Title, Description, and Tag must each have at least 3 characters",
+
+  "title": "Title",
+  "desc": "Description",
+  "tag": "Tag",
+  "initial-date": "Start Date",
+  "end-date": "End Date",
+
+  "title-profile": "My Profile",
+  "desc-profile": "Manage your profile",
+  "delete-account": "Delete My Account",
+  "logout": "Logout",
+  "please-type": "Please type",
+  "to-confirm": "to confirm",
+
+  "title-settings": "Settings",
+  "settings-side": "Settings",
+  "dark-mode": "Dark Mode",
+  "primary-color": "Primary Color"
+}

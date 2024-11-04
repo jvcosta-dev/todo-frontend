@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
-import { useContent } from "../contexts/ContentContext";
+import { useTranslation } from "react-i18next";
+
 import { useAuth } from "../contexts/AuthContext";
 import { Input } from "../components/ui/Input";
 import { Button } from "../components/ui/Button";
@@ -7,7 +8,7 @@ import { Link } from "react-router-dom";
 import Page from "../components/Page";
 
 export function Register() {
-  const content = useContent();
+  const { t } = useTranslation();
   const { register } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,16 +19,16 @@ export function Register() {
   const submit = async (e: FormEvent) => {
     e.preventDefault();
     if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-      setError(content.invalid.email);
+      setError(t("invalid-email"));
       return;
     }
     if (password !== confirmedPassword) {
-      setError(content.invalid.match);
+      setError(t("invalid-confirm-password"));
       return;
     }
 
     if (!/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password)) {
-      setError(content.invalid.password);
+      setError(t("invalid-password"));
       return;
     }
 
@@ -35,11 +36,11 @@ export function Register() {
     if (err) setError(err);
   };
   return (
-    <Page title="Sign Up" description="register into Todo Ui web application.">
+    <Page title={t("title-signup")} description={t("desc-signup")}>
       <div className="h-screen flex items-center justify-center">
         <div className="flex flex-col items-center gap-3 p-6 rounded-3xl bg-solid dark:bg-solidDark mb-32">
           <h1 className="text-center capitalize text-3xl w-72 sm:w-80">
-            {content.register.title}
+            {t("title-signup")}
           </h1>
           <form
             onSubmit={(e: FormEvent) => submit(e)}
@@ -48,7 +49,7 @@ export function Register() {
             <Input
               type="text"
               name="name"
-              label={content.labels.name}
+              label={t("name")}
               value={name}
               required
               change={(e) => {
@@ -64,7 +65,7 @@ export function Register() {
             <Input
               type="email"
               name="email"
-              label={content.labels.email}
+              label={"email"}
               value={email}
               required
               change={(e) => setEmail(e.target.value)}
@@ -72,7 +73,7 @@ export function Register() {
             <Input
               type="password"
               name="password"
-              label={content.labels.password}
+              label={t("password")}
               value={password}
               required
               change={(e) => setPassword(e.target.value)}
@@ -80,7 +81,7 @@ export function Register() {
             <Input
               type="password"
               name="confirmedPassword"
-              label={`confirm ${content.labels.password} `}
+              label={t("confirm-password")}
               value={confirmedPassword}
               required
               change={(e) => setConfirmedPassword(e.target.value)}
@@ -95,14 +96,12 @@ export function Register() {
               full
               type="submit"
             >
-              {content.register.action}
+              {t("action-signup")}
             </Button>
-            <p className="capitalize">
-              {content.register.link.split("?")[0]}?
+            <p>
+              {t("question-signup")}{" "}
               <Link to="/login">
-                <span className="text-primary">
-                  {content.register.link.split("?")[1]}
-                </span>
+                <span className="text-primary">{t("link-signup")}</span>
               </Link>
             </p>
           </form>

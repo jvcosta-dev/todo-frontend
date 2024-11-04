@@ -3,7 +3,8 @@ import { FormEvent, useEffect, useState } from "react";
 import { Input } from "../ui/Input";
 import { Modal } from "../ui/Modal";
 import { Button } from "../ui/Button";
-import { ITaskInput } from "../../interfaces";
+import { ITaskInput } from "../../interfaces/interfaces";
+import { useTranslation } from "react-i18next";
 
 interface CreateTaskModalProps {
   isOpen: boolean;
@@ -16,6 +17,8 @@ export function CreateTaskModal({
   onClose,
   onSubmit,
 }: CreateTaskModalProps) {
+  const { t } = useTranslation();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tag, setTag] = useState("");
@@ -49,12 +52,12 @@ export function CreateTaskModal({
     };
 
     if (new Date(initialDate).getDate() > new Date(endDate).getDate()) {
-      setError("End date must be greater than initial date.");
+      setError(t("error-date"));
       return;
     }
 
     if (title.length < 3 || description.length < 3 || tag.length < 3) {
-      setError("Title, Description and Tag must be at least 3 caracters.");
+      setError(t("error-length"));
       return;
     }
     onSubmit(data);
@@ -63,11 +66,11 @@ export function CreateTaskModal({
 
   if (!isOpen) return;
   return (
-    <Modal title="Create Task" closeFn={onClose}>
+    <Modal title={t("create-tasks")} closeFn={onClose}>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <Input
           name="title"
-          label="Title"
+          label={t("title")}
           type="text"
           change={(e) => setTitle(e.target.value)}
           value={title}
@@ -75,7 +78,7 @@ export function CreateTaskModal({
         />
         <Input
           name="description"
-          label="Description"
+          label={t("desc")}
           type="text"
           change={(e) => setDescription(e.target.value)}
           value={description}
@@ -83,7 +86,7 @@ export function CreateTaskModal({
         />
         <Input
           name="tag"
-          label="Tag"
+          label={t("tag")}
           type="text"
           change={(e) => setTag(e.target.value)}
           value={tag}
@@ -92,7 +95,7 @@ export function CreateTaskModal({
         <div className="flex flex-col md:flex-row gap-4">
           <Input
             name="initialDate"
-            label="Initial Date"
+            label={t("initial-date")}
             type="datetime-local"
             change={(e) => setInitialDate(e.target.value)}
             value={initialDate}
@@ -100,7 +103,7 @@ export function CreateTaskModal({
           />
           <Input
             name="endDate"
-            label="End Date"
+            label={t("end-date")}
             type="datetime-local"
             change={(e) => setEndDate(e.target.value)}
             value={endDate}
@@ -112,7 +115,7 @@ export function CreateTaskModal({
           disabled={!title || !description || !tag || !initialDate || !endDate}
           full
         >
-          Create Task
+          {t("create-tasks")}
         </Button>
       </form>
       {error && <span className="text-danger text-center">{error}</span>}

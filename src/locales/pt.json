@@ -1,0 +1,73 @@
+{
+  "welcome": "Bem-Vindo",
+  "greeting": "Olá",
+
+  "title-login": "Entrar",
+  "desc-login": "Entre em sua conta do Task Track",
+  "action-login": "Entrar Agora",
+  "question-login": "Não tem uma conta?",
+  "link-login": "Crie Agora",
+
+  "title-signup": "Crie sua conta",
+  "desc-signup": "Crie sua conta do Task Track",
+  "name": "Nome",
+  "password": "Senha",
+  "confirm-password": "Confirmar Senha",
+  "action-signup": "Criar Conta",
+  "question-signup": "Já tem uma conta?",
+  "link-signup": "Entre Agora",
+
+  "invalid-email": "Email Inválido",
+  "invalid-password": "A senha precisa ter no mínimo 8 letras, contendo 1 maiúscula e 1 número",
+  "invalid-confirm-password": "As senhas não são iguais",
+
+  "title-404": "Página não encontrada",
+  "desc-404": "Essa página não foi encontrada",
+  "link-404": "Retornar",
+
+  "title-dash": "Dashboard",
+  "desc-dash": "Visão geral de suas tarefas",
+  "dashboard-side": "Dashboard",
+
+  "today": "Hoje é",
+  "completed-tasks": "Tarefas Concluídas",
+  "active-tasks": "Tarefas Ativas",
+  "pending-tasks": "Tarefas Pendentes",
+  "next-dash": "Próxima Tarefa",
+  "next-pending-task": "Próxima Tarefa Pendente",
+  "recent-dash": "Tarefa Recente",
+
+  "label-line-chart": "Tarefa(s) por dia",
+  "title-line-chart": "Tarefas concluídas por dia",
+
+  "tasks-side": "Tarefas",
+  "title-taks": "Tarefas",
+  "desc-tasks": "Gerencie suas tarefas",
+  "tasks": "Tarefas",
+  "have-tasks": "você tem",
+  "no-tasks": "você não tem nenhuma tarefa",
+  "search-tasks": "Pesquisar Tarefa",
+  "delete-tasks": "Deletar Tarefa",
+  "create-tasks": "Criar Tarefa",
+
+  "error-date": "Data final precisa ser depois da data inicial",
+  "error-length": "Título, Descrição e Tag precisam de no mínimo 3 letras cada",
+
+  "title": "Título",
+  "desc": "Descrição",
+  "tag": "Tag",
+  "initial-date": "Data Inicial",
+  "end-date": "Data Final",
+
+  "title-profile": "Meu Perfil",
+  "desc-profile": "Gerencie seu perfil",
+  "delete-account": "Deletar Minha Conta",
+  "logout": "Sair",
+  "please-type": "Por favor, insira",
+  "to-confirm": "para confirmar",
+
+  "title-settings": "Ajustes",
+  "settings-side": "Ajustes",
+  "dark-mode": "Modo Escuro",
+  "primary-color": "Cor Principal"
+}

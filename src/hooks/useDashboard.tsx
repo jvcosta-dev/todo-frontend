@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../contexts/AuthContext";
-import { Dashboard } from "../interfaces";
+import { Dashboard } from "../interfaces/interfaces";
 
 export function useDashBoard(init: string, end: string) {
   const { fetchWithAuth } = useAuth();

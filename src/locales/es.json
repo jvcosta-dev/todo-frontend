@@ -1,0 +1,73 @@
+{
+  "welcome": "Bienvenido",
+  "greeting": "Hola",
+
+  "title-login": "Iniciar sesión",
+  "desc-login": "Inicie sesión en su cuenta de Task Track",
+  "action-login": "Inicia sesión ahora",
+  "question-login": "¿No tienes una cuenta?",
+  "link-login": "Crear ahora",
+
+  "title-signup": "Crea tu cuenta",
+  "desc-signup": "Crea tu cuenta de Task Track",
+  "name": "Nombre",
+  "password": "Contraseña",
+  "confirm-password": "Confirmar contraseña",
+  "action-signup": "Crear cuenta",
+  "question-signup": "¿Ya tienes una cuenta?",
+  "link-signup": "Inicia sesión ahora",
+
+  "invalid-email": "Correo electrónico no válido",
+  "invalid-password": "La contraseña debe tener al menos 8 caracteres, con 1 mayúscula y 1 número",
+  "invalid-confirm-password": "Las contraseñas no coinciden",
+
+  "title-404": "Página no encontrada",
+  "desc-404": "Esta página no fue encontrada",
+  "link-404": "Regresar",
+
+  "title-dash": "Panel de control",
+  "desc-dash": "Resumen de tus tareas",
+  "dashboard-side": "Panel de control",
+
+  "today": "Hoy es",
+  "completed-tasks": "Tareas completadas",
+  "active-tasks": "Tareas activas",
+  "pending-tasks": "Tareas pendientes",
+  "next-dash": "Próxima tarea",
+  "next-pending-task": "Próxima tarea pendiente",
+  "recent-dash": "Tarea reciente",
+
+  "label-line-chart": "Tarea(s) por día",
+  "title-line-chart": "Tareas completadas por día",
+
+  "tasks-side": "Tareas",
+  "title-taks": "Tareas",
+  "desc-tasks": "Administra tus tareas",
+  "tasks": "Tareas",
+  "have-tasks": "tienes",
+  "no-tasks": "no tienes tareas",
+  "search-tasks": "Buscar tarea",
+  "delete-tasks": "Eliminar tarea",
+  "create-tasks": "Crear tarea",
+
+  "error-date": "La fecha de finalización debe ser posterior a la fecha de inicio",
+  "error-length": "El título, la descripción y la etiqueta deben tener al menos 3 caracteres",
+
+  "title": "Título",
+  "desc": "Descripción",
+  "tag": "Etiqueta",
+  "initial-date": "Fecha de inicio",
+  "end-date": "Fecha de finalización",
+
+  "title-profile": "Mi perfil",
+  "desc-profile": "Administra tu perfil",
+  "delete-account": "Eliminar mi cuenta",
+  "logout": "Cerrar sesión",
+  "please-type": "Por favor, escriba",
+  "to-confirm": "para confirmar",
+
+  "title-settings": "Configuración",
+  "settings-side": "Configuración",
+  "dark-mode": "Modo oscuro",
+  "primary-color": "Color principal"
+}

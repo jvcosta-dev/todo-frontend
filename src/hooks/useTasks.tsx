@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "../contexts/AuthContext";
-import { ITask, ITaskInput } from "../interfaces";
+import { ITask, ITaskInput } from "../interfaces/interfaces";
 
 export function useTasks() {
   const queryClient = useQueryClient();

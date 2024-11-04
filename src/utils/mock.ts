@@ -1,4 +1,4 @@
-import { TasksPerDayArray } from "../interfaces";
+import { TasksPerDayArray } from "../interfaces/interfaces";
 
 export const mockLineChart: TasksPerDayArray[] = [
   {

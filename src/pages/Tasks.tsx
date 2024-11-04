@@ -8,10 +8,12 @@ import { Loading } from "../components/ui/Loading";
 import Page from "../components/Page";
 import { useAuth } from "../contexts/AuthContext";
 import { Input } from "../components/ui/Input";
-import { ITask } from "../interfaces";
+import { ITask } from "../interfaces/interfaces";
 import { Task } from "../components/tasks/Task";
+import { useTranslation } from "react-i18next";
 
 export function Tasks() {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const { tasks, isLoading, createTask } = useTasks();
 
@@ -35,18 +37,18 @@ export function Tasks() {
   if (isLoading) return <Loading />;
 
   return (
-    <Page title="Your Tasks" description="manage all of your tasks.">
+    <Page title={t("title-tasks")} description={t("desc-tasks")}>
       <div className="flex flex-col flex-grow gap-4">
         <div className="flex flex-col md:flex-row items-center gap-4 md:justify-between">
           <h1 className="text-xl">
-            Hello {user.name},{" "}
+            {t("greeting")} {user.name},{" "}
             {tasks && tasks.length > 0
-              ? `you have ${tasks.length} tasks!`
-              : "you dont have any tasks!"}
+              ? `${t("have-tasks")} ${tasks.length} ${t("tasks")}`
+              : t("no-tasks")}
           </h1>
           <Button type="button" click={() => setIsModalOpen(true)}>
             <div className="flex gap-2 items-center">
-              Create Task
+              {t("create-tasks")}
               <FilePlusIcon />
             </div>
           </Button>
@@ -62,11 +64,11 @@ export function Tasks() {
                 name="term"
                 type="text"
                 value={term}
-                placeholder="search task by name"
+                placeholder={t("search-tasks")}
                 change={(e) => setTerm(e.target.value)}
               />
               <Button type="submit">
-                <Search aria-label="search task" />
+                <Search aria-label={t("")} />
               </Button>
               <Button
                 type="button"
@@ -78,7 +80,7 @@ export function Tasks() {
                 danger
                 disabled={!resultTask && !term && !touchedSearch}
               >
-                <Trash2 aria-label="delete search results" />
+                <Trash2 aria-label={t("delete-tasks")} />
               </Button>
             </form>
             {resultTask ? (
@@ -86,27 +88,27 @@ export function Tasks() {
             ) : (
               touchedSearch && (
                 <p className="text-danger text-center">
-                  No results for: {term}
+                  {t("a")}: {term}
                 </p>
               )
             )}
 
             <TaskList
-              title="Pending Tasks"
+              title={t("pending-tasks")}
               tasks={tasks.filter((t) => t.status === 2)}
             />
             <TaskList
-              title="Active Tasks"
+              title={t("active-tasks")}
               tasks={tasks.filter((t) => t.status === 0)}
             />
             <TaskList
-              title="Completed Tasks"
+              title={t("completed-tasks")}
               tasks={tasks.filter((t) => t.status === 1)}
             />
             {Array.from(new Set(tasks.map((t) => t.tag))).map((tag) => (
               <TaskList
                 key={tag}
-                title={`#${tag} Tasks`}
+                title={`#${tag} ${t("tasks")}`}
                 tasks={tasks.filter((t) => t.tag === tag)}
               />
             ))}

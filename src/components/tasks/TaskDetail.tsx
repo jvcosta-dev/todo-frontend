@@ -1,6 +1,5 @@
 import { Edit, Trash2 } from "lucide-react";
-import { useContent } from "../../contexts/ContentContext";
-import { ITask, ITaskInput } from "../../interfaces";
+import { ITask, ITaskInput } from "../../interfaces/interfaces";
 import { useTasks } from "../../hooks/useTasks";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../ui/Button";
@@ -8,6 +7,7 @@ import { Modal } from "../ui/Modal";
 import { Input } from "../ui/Input";
 import { FormEvent, useState } from "react";
 import { formatDateToInput } from "../../utils/formatDate";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   task: ITask;
@@ -18,7 +18,7 @@ interface Props {
 
 export function TaskDetail({ task, isOpen, onClose, onSubmit }: Props) {
   const navigate = useNavigate();
-  const { labels } = useContent();
+  const { t } = useTranslation();
   const { deleteTask } = useTasks();
 
   const handleDelete = () => {
@@ -108,11 +108,11 @@ export function TaskDetail({ task, isOpen, onClose, onSubmit }: Props) {
               }
               full
             >
-              <Edit size={24} aria-label={labels.taskDelete} />
+              <Edit size={24} aria-label={t("")} />
               Edit Task
             </Button>
             <Button type="button" click={handleDelete} danger full>
-              <Trash2 size={24} aria-label={labels.taskDelete} />
+              <Trash2 size={24} aria-label={t("")} />
               Delete Task
             </Button>
           </div>

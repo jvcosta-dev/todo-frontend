@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Button } from "../ui/Button";
 import { Trash2 } from "lucide-react";
 import { Input } from "../ui/Input";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   isOpen: boolean;
@@ -12,6 +13,7 @@ interface Props {
 }
 
 export function DeleteAccount({ isOpen, onClose, onSubmit }: Props) {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const confirmMessage = `${user.name} delete my account`;
   const [confirmInput, setConfirmInput] = useState("");
@@ -34,9 +36,9 @@ export function DeleteAccount({ isOpen, onClose, onSubmit }: Props) {
 
   if (!isOpen) return;
   return (
-    <Modal title="Delete my Account" closeFn={onClose}>
+    <Modal title={t("delete-account")} closeFn={onClose}>
       <h4 className="text-lg select-none">
-        Please type <b>{confirmMessage}</b> to confirm
+        {t("please-type")} <b>{confirmMessage}</b> {t("to-confirm")}
       </h4>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <Input
@@ -53,7 +55,7 @@ export function DeleteAccount({ isOpen, onClose, onSubmit }: Props) {
           disabled={confirmInput !== confirmMessage}
         >
           <Trash2 />
-          Delete my Account
+          {t("delete-account")}
         </Button>
       </form>
     </Modal>

@@ -9,7 +9,8 @@ import {
   Legend,
   Filler,
 } from "chart.js";
-import { TasksPerDayArray } from "../../interfaces";
+import { TasksPerDayArray } from "../../interfaces/interfaces";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(
   LineElement,
@@ -26,6 +27,7 @@ interface Props {
 }
 
 export function LineChart({ tasksPerDayArray }: Props) {
+  const { t } = useTranslation();
   const labels = tasksPerDayArray.map((task) => task.date);
   const dataCounts = tasksPerDayArray.map((task) => task.count);
   const taskTitles = tasksPerDayArray.map((task) =>
@@ -36,7 +38,7 @@ export function LineChart({ tasksPerDayArray }: Props) {
     labels: labels,
     datasets: [
       {
-        label: "Completed Tasks per Day",
+        label: t("label-line-chart"),
         data: dataCounts,
         fill: true,
         borderColor: "rgba(75, 192, 192, 1)",
@@ -67,7 +69,7 @@ export function LineChart({ tasksPerDayArray }: Props) {
 
   return (
     <div className="flex flex-col gap-2">
-      <h4 className="text-xl">Completed Tasks this Month</h4>
+      <h4 className="text-xl">{t("title-line-chart")}</h4>
       <Line data={data} options={options} />
     </div>
   );
