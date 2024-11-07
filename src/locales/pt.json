@@ -69,5 +69,7 @@
   "title-settings": "Ajustes",
   "settings-side": "Ajustes",
   "dark-mode": "Modo Escuro",
-  "primary-color": "Cor Principal"
+  "primary-color": "Cor Principal",
+
+  "language": "Idioma"
 }

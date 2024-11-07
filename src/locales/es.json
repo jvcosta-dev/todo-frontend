@@ -69,5 +69,7 @@
   "title-settings": "Configuración",
   "settings-side": "Configuración",
   "dark-mode": "Modo oscuro",
-  "primary-color": "Color principal"
+  "primary-color": "Color principal",
+
+  "language": "Idioma"
 }
