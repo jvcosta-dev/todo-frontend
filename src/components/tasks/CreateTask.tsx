@@ -1,22 +1,18 @@
-// components/tasks/CreateTaskModal.tsx
 import { FormEvent, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+
 import { Input } from "../ui/Input";
 import { Modal } from "../ui/Modal";
 import { Button } from "../ui/Button";
 import { ITaskInput } from "../../interfaces/interfaces";
-import { useTranslation } from "react-i18next";
 
-interface CreateTaskModalProps {
+interface Props {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (data: ITaskInput) => void;
 }
 
-export function CreateTaskModal({
-  isOpen,
-  onClose,
-  onSubmit,
-}: CreateTaskModalProps) {
+export function CreateTaskModal({ isOpen, onClose, onSubmit }: Props) {
   const { t } = useTranslation();
 
   const [title, setTitle] = useState("");

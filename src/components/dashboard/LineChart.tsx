@@ -9,6 +9,7 @@ import {
   Legend,
   Filler,
 } from "chart.js";
+
 import { TasksPerDayArray } from "../../interfaces/interfaces";
 import { useTranslation } from "react-i18next";
 

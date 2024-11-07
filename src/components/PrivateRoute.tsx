@@ -1,7 +1,9 @@
 import { Outlet } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
 import { useEffect } from "react";
+
+import { useAuth } from "../contexts/AuthContext";
 import { IUser } from "../interfaces/interfaces";
+
 const PrivateRoute = () => {
   const { setUser, logout } = useAuth();
   useEffect(() => {

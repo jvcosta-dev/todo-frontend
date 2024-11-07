@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+
 import Page from "../components/Page";
 import { primaryColor, useSettings } from "../contexts/SettingsContext";
 import { ChangeLanguage } from "../components/ChangeLanguage";

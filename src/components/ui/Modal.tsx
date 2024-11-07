@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
-import { Button } from "./Button";
 import { X } from "lucide-react";
+
+import { Button } from "./Button";
 
 interface Props {
   title: string;

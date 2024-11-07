@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import { Button } from "../components/ui/Button";
 import Page from "../components/Page";
-import { useTranslation } from "react-i18next";
 
 export function Notfound() {
   const { t } = useTranslation();

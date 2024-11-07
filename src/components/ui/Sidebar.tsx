@@ -1,7 +1,8 @@
 import { ClipboardCheck, LayoutDashboard, Settings } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 import { SidebarItem } from "./SidebarItem";
 import { useAuth } from "../../contexts/AuthContext";
-import { useTranslation } from "react-i18next";
 
 export function Sidebar() {
   const { t } = useTranslation();

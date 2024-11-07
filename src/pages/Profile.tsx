@@ -1,10 +1,11 @@
 import { LogOut, Trash2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
+
 import Page from "../components/Page";
 import { Button } from "../components/ui/Button";
 import { useAuth } from "../contexts/AuthContext";
-import { useState } from "react";
 import { DeleteAccount } from "../components/profile/DeleteAccount";
-import { useTranslation } from "react-i18next";
 
 export function Profile() {
   const { t } = useTranslation();

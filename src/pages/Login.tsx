@@ -1,10 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { FormEvent, useState } from "react";
+import { Link } from "react-router-dom";
+
 import { useAuth } from "../contexts/AuthContext";
 import { Input } from "../components/ui/Input";
 import { Button } from "../components/ui/Button";
-import { Link } from "react-router-dom";
 import Page from "../components/Page";
-import { useTranslation } from "react-i18next";
 
 export function Login() {
   const { t } = useTranslation();

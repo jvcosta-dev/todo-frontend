@@ -1,13 +1,14 @@
 import { Edit, Trash2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { FormEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
+
 import { ITask, ITaskInput } from "../../interfaces/interfaces";
 import { useTasks } from "../../hooks/useTasks";
-import { useNavigate } from "react-router-dom";
 import { Button } from "../ui/Button";
 import { Modal } from "../ui/Modal";
 import { Input } from "../ui/Input";
-import { FormEvent, useState } from "react";
 import { formatDateToInput } from "../../utils/formatDate";
-import { useTranslation } from "react-i18next";
 
 interface Props {
   task: ITask;

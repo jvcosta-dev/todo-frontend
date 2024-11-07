@@ -1,16 +1,17 @@
-import { TaskList } from "../components/tasks/TaskList";
-import { Button } from "../components/ui/Button";
 import { FilePlusIcon, Search, Trash2 } from "lucide-react";
 import { FormEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import { useAuth } from "../contexts/AuthContext";
+import { TaskList } from "../components/tasks/TaskList";
+import { Button } from "../components/ui/Button";
 import { useTasks } from "../hooks/useTasks";
 import { CreateTaskModal } from "../components/tasks/CreateTask";
 import { Loading } from "../components/ui/Loading";
 import Page from "../components/Page";
-import { useAuth } from "../contexts/AuthContext";
 import { Input } from "../components/ui/Input";
 import { ITask } from "../interfaces/interfaces";
 import { Task } from "../components/tasks/Task";
-import { useTranslation } from "react-i18next";
 
 export function Tasks() {
   const { t } = useTranslation();

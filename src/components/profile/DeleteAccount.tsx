@@ -1,10 +1,11 @@
 import { FormEvent, useEffect, useState } from "react";
+import { Trash2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 import { Modal } from "../ui/Modal";
 import { useAuth } from "../../contexts/AuthContext";
 import { Button } from "../ui/Button";
-import { Trash2 } from "lucide-react";
 import { Input } from "../ui/Input";
-import { useTranslation } from "react-i18next";
 
 interface Props {
   isOpen: boolean;

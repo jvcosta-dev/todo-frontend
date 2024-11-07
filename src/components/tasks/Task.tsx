@@ -1,11 +1,12 @@
 import { SquareArrowOutUpRight, Trash2 } from "lucide-react";
+import { ChangeEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
+
 import { ITask, ITaskInput } from "../../interfaces/interfaces";
 import { formatDate } from "../../utils/formatDate";
-import { ChangeEvent, useState } from "react";
 import { useTasks } from "../../hooks/useTasks";
 import { Button } from "../ui/Button";
 import { TaskDetail } from "./TaskDetail";
-import { useTranslation } from "react-i18next";
 
 interface Props {
   task: ITask;

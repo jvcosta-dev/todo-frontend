@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
+import { useAuth } from "../contexts/AuthContext";
+import { useDashBoard } from "../hooks/useDashboard";
+
 import { LineChart } from "../components/dashboard/LineChart";
 import { Widget } from "../components/dashboard/Widget";
 import Page from "../components/Page";
 import { TaskList } from "../components/tasks/TaskList";
 import { Loading } from "../components/ui/Loading";
-
-import { useAuth } from "../contexts/AuthContext";
-import { useDashBoard } from "../hooks/useDashboard";
 
 import {
   formatDate,
