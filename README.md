@@ -1,44 +1,65 @@
 # Task Track
 
-Task Track is a web-based task management application that allows users to track, manage, and organize their tasks efficiently. It features a dashboard with monthly task statistics, personalized task lists with tags, and user account and theme configuration options. Built with React, TypeScript, and TailwindCSS, this project leverages Vite for fast development, TanStack Query for data fetching, and Context API for authentication and settings management.
+Frontend project for task management with user authentication, built in TypeScript using React, Vite, TanStack Query, Tailwind CSS, and i18next for multi-language support (English, Portuguese, Spanish, and French). This application allows users to securely manage tasks, with efficient data fetching and state management through TanStack Query, a responsive UI styled with Tailwind CSS, and seamless language switching powered by i18next.
 
-## Features
+## Table of Contents
 
-### Authentication
-- **User Registration, Login, and Logout**: Simple and secure user authentication.
-- **User Deletion**: Users can delete their account by confirming their action with a secure text-based prompt (`username delete my account`).
-- **Auth Context Management**: Manages authentication state across the application using React Context API.
+- [Project Info](#project-info)
+- [Running the Application](#running-the-application)
+- [Examples](#examples)
+  - [Dashboard](#dashboard)
+  - [Tasks](#tasks)
+  - [Profile](#profile)
+  - [Settings](#settings)
+  - [Register](#registration)
+  - [Login](#login)
+
+### Project Info
+- **Typescript**
+- **React**
+- **Vite**
+- **TailwindCSS**
+- **TanstackQuery**
+- **ChartJS**
+- **I18next**
+
+## Running the Application
+
+Create your `.env.local` file in root dir and setup your `API_URL`
+
+Now install dependencies and run the application
+
+```bash
+npm install
+npm run dev
+open your browser at localhost:5173
+```
+
+To build and preview use
+
+```bash
+npm run build
+npm run preview
+open your browser at localhost:4173
+```
+
+## Examples
 
 ### Dashboard
-- **Monthly Statistics**: 
-  - Shows the total number of completed, pending, and active tasks for the current month.
-  - Displays key task insights, including the next active task, the most recently completed task, and the most recent pending task.
-- **Task Completion Graph**: A line chart showing the number of tasks completed on each day of the month, helping users visualize their productivity over time.
+![Dashboard Page](https://i.imgur.com/BIzKEuQ.png)
 
-### Task Management
-- **Task Creation and Editing**:
-  - Create tasks with the following attributes: `title`, `description`, `tag`, `initialDate`, and `endDate`.
-  - Edit or delete tasks, and mark them as completed or pending (toggleable).
-- **Task Filtering by Status and Tags**:
-  - View lists of active, pending, and completed tasks.
-  - Filter tasks by tags, allowing users to see all tasks associated with a specific tag.
-- **Dynamic Task Lists**: Task lists are dynamically organized by status and user-defined tags.
+### Tasks
+![Tasks Page](https://i.imgur.com/D8ShtTC.png)
 
-### User Profile
-- **User Info**: Displays the user's name, profile picture, and email.
-- **Account Management**:
-  - **Logout**: Secure logout button.
-  - **Delete Account**: Opens a modal for account deletion confirmation; users must type `username delete my account` to confirm.
+### Profile
+![Profile Page](https://i.imgur.com/jJswa1k.png)
 
-### Configuration
-- **Dark Mode**: Toggle between light and dark themes.
-- **Primary Color Selection**: Customize the primary color of the interface from a variety of options.
+### Settings
+![Settings Page](https://i.imgur.com/xOX0mP8.png)
+![Settings Dark Page](https://i.imgur.com/KNANwcS.png)
 
-## Tech Stack
+### Registration
+![Register Page](https://i.imgur.com/1n7cgAX.png)
 
-- **Frontend**: React, TypeScript
-- **Styling**: TailwindCSS for responsive and modern styling.
-- **State Management**:
-  - **TanStack Query**: For efficient server state and request management.
-  - **Context API**: For managing authentication and settings contexts.
-- **Development**: Vite for fast builds and a streamlined development experience.
+### Login
+![Login Page](https://i.imgur.com/ui46kh4.png)
