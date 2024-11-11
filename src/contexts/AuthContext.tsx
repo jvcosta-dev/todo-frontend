@@ -70,7 +70,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const res = await response.json();
 
       if (res) {
-        console.log(res.user);
         setUser(res.user);
         localStorage.setItem("user", JSON.stringify(res.user));
         navigate("/dashboard");
@@ -101,7 +100,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const res = await response.json();
 
       if (res) {
-        console.log(res.user);
         setUser(res.user);
         localStorage.setItem("user", JSON.stringify(res.user));
         navigate("/dashboard");
@@ -122,6 +120,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (!res.ok) {
         return "Error deleting user";
       }
+      logout();
       return null;
     } catch (error) {
       return "An error occurred. Please try again.";
@@ -135,7 +134,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       email: "",
     });
     localStorage.removeItem("user");
-    navigate("/login");
+    navigate("/");
   };
 
   const fetchWithAuth: FetchWithAuth = async (

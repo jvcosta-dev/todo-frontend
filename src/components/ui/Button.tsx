@@ -24,7 +24,7 @@ export function Button({
       onClick={click}
       className={`${full ? "w-full" : "w-max"} ${
         danger ? "bg-danger" : "bg-primary"
-      } flex h-max justify-center gap-2 p-2 rounded-lg text-white capitalize disabled:bg-light dark:disabled:bg-dark disabled:text-dark dark:disabled:text-light transition-colors duration-150`}
+      } flex h-max justify-center gap-2 py-2 px-4 rounded-full text-white capitalize disabled:bg-light dark:disabled:bg-dark disabled:text-dark dark:disabled:text-light transition-colors duration-150`}
     >
       {children}
     </button>
