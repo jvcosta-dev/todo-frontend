@@ -71,5 +71,12 @@
   "dark-mode": "Dark Mode",
   "primary-color": "Primary Color",
 
-  "language": "Language"
+  "language": "Language",
+
+  "title-landing": "Manage Your Tasks",
+  "desc-landing": "Frontend project for task management with user authentication, built in TypeScript using React, Vite, TanStack Query, and Tailwind CSS. This application allows users to securely manage tasks, leveraging efficient data fetching and state management with TanStack Query, and styled for a responsive, modern UI with Tailwind CSS.",
+  "h1-landing": "Stay in Control of",
+  "h1-span-landing": "Your Schedule",
+  "p-landing": "Easily set deadlines, reminders, and priorities to meet your goals.",
+  "action-landing": "Get Started"
 }

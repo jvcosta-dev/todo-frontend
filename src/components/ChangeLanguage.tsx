@@ -1,6 +1,10 @@
 import { useTranslation } from "react-i18next";
 
-export function ChangeLanguage() {
+interface Props {
+  noLabel?: boolean;
+}
+
+export function ChangeLanguage({ noLabel }: Props) {
   const { i18n, t } = useTranslation();
 
   const changeLanguage = (lng: any) => {
@@ -9,7 +13,7 @@ export function ChangeLanguage() {
   };
   return (
     <label htmlFor="changeLanguage" className="flex flex-col gap-1">
-      {t("language")}
+      {!noLabel && t("language")}
       <select
         id="changeLanguage"
         className="p-1 border-2 rounded-lg bg-solid dark:bg-solidDark border-light dark:border-solidDark outline-none"

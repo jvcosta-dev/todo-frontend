@@ -71,5 +71,12 @@
   "dark-mode": "Modo Escuro",
   "primary-color": "Cor Principal",
 
-  "language": "Idioma"
+  "language": "Idioma",
+
+  "title-landing": "Gerencie Suas Tarefas",
+  "desc-landing": "Projeto frontend para gerenciamento de tarefas com autenticação de usuários, construído em TypeScript usando React, Vite, TanStack Query e Tailwind CSS. Esta aplicação permite que os usuários gerenciem tarefas com segurança, aproveitando a busca eficiente de dados e o gerenciamento de estado com TanStack Query, e estilizada para uma interface moderna e responsiva com Tailwind CSS.",
+  "h1-landing": "Mantenha o Controle de",
+  "h1-span-landing": "Sua Agenda",
+  "p-landing": "Defina prazos, lembretes e prioridades facilmente para alcançar seus objetivos.",
+  "action-landing": "Começar Agora"
 }

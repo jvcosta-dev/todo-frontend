@@ -18,6 +18,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { Settings } from "./pages/Settings";
 import { Register } from "./pages/Register";
 import { Profile } from "./pages/Profile";
+import { Landing } from "./pages/Landing";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +65,14 @@ createRoot(document.getElementById("root")!).render(
               </Route>
               <Route element={<Register />} path="/signup" />
               <Route element={<Login />} path="/login" />
+              <Route
+                element={
+                  <Layout noSideBar>
+                    <Landing />
+                  </Layout>
+                }
+                path="/"
+              />
               <Route element={<Notfound />} path="/*" />
             </Routes>
           </SettingsProvider>
